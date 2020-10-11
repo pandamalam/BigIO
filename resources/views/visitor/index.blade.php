@@ -3,18 +3,30 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Stuff Price</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are in VISITOR Dashboard!
+                    
+                    <table class="table table table-striped table-bordered" id="example" style="width:100%">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Stuff</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($stuff as $key => $item)
+                                <tr>
+                                    <th scope="row">{{ ++$key }}</th>
+                                    <td>{{ $item->stuff_name }}</td>
+                                    <td><a href="{{ route('visitor.stuff', $item) }}" class="btn btn-primary">View Price</a></td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                      </table>
                 </div>
             </div>
         </div>

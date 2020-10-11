@@ -8,13 +8,8 @@
                 <div class="card-header">Stuff Price</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <table class="table ">
+                    
+                    <table class="table table table-striped table-bordered" id="example" style="width:100%">
                         <thead>
                           <tr>
                             <th scope="col">#</th>

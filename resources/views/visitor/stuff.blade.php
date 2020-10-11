@@ -2,32 +2,13 @@
 
 @section('content')
 <div class="container">
+    <canvas id="myChart" ></canvas>
     <div class="row justify-content-center">
         <div class="col-md-12">
+
             <div class="card">
-                <div class="card-header">{{ $stuff->stuff_name }} Price</div>
+                <div class="card-header">Price</div>
                 <div class="card-body">
-                    <button class="mb-4 btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        ADD PRICE
-                      </button>
-                      <div id="accordion">
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                            <form class="mb-5" method="POST" action="{{ route('surveyor.stuffPrice', $stuff) }}">
-                                @csrf
-                                <div class="row">
-                                    <div class="form-group col">
-                                        <label>Price</label>
-                                        <input type="number" class="form-control" name="price" placeholder="Stuff Price">
-                                    </div>
-                                    <div class="form-group col">
-                                        <label>Date</label>
-                                        <input type="date" name="price_date" class="form-control">
-                                    </div>
-                                </div>
-                                <input type="submit" class="float-right btn btn-primary" value="Submit Price">
-                            </form>
-                        </div>
-                      </div>
                     <table class="table table table-striped table-bordered" id="example" style="width:100%">
                         <thead>
                           <tr>
@@ -39,10 +20,10 @@
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($stuff->stuff_has_price as $key => $item)
+                            @foreach ($stuff as $key => $item)
                                 <tr>
                                     <th scope="row">{{ ++$key }}</th>
-                                    <td>{{ $stuff->stuff_name }}</td>
+                                    <td>{{ $item->price_has_stuff->stuff_name }}</td>
                                     <td>{{ $item->price }}</td>
                                     <td>{{ $item->price_date }}</td>
                                     <td class="text-capitalize">{{ $item->price_status }} 
@@ -61,4 +42,42 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script>
+ $.noConflict();
+ jQuery( document ).ready(function( $ ) {
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [@foreach($chartDatas as $d) "{{ $d['date'] }}", @endforeach],
+            datasets: [{
+                label: 'Price Mean',
+                data: [@foreach($chartDatas as $v) "{{ $v['data'] }}", @endforeach],
+                backgroundColor: [
+                    'rgba(38, 166, 154, 0.5)',
+                ],
+                borderColor: [
+                    'rgba(247, 197, 97, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                xAxes: [ {
+                  display: true,
+                } ],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'probability'
+                    }
+                }]
+            }
+        }
+    });
+    });
+</script>
 @endsection
