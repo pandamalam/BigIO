@@ -33,4 +33,13 @@ class AdminController extends Controller
         }
         return redirect()->back();
     }
+
+    public function storeStuff(Request $request)
+    {
+       $stuff = new Stuff;
+       $stuff->stuff_name = $request->stuff_name;
+       $stuff->description = $request->description;
+       $stuff->save();
+       return redirect()->back();
+    }
 }

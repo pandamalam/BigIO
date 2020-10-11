@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
 Route::get('/admin/stuff/{id}', 'AdminController@stuff')->name('admin.stuff')->middleware('admin');
 Route::Patch('/admin/stuff/{id}', 'AdminController@stuffPrice')->name('admin.stuffPrice')->middleware('admin');
+Route::post('/admin/add/stuff', 'AdminController@storeStuff')->name('admin.storeStuff')->middleware('admin');
 
 
 Route::get('/surveyor', 'SurveyorController@index')->name('surveyor')->middleware('surveyor');

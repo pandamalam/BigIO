@@ -6,23 +6,22 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Stuff Price</div>
-
                 <div class="card-body">
                     <button class="mb-4 btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         ADD STUFF
                       </button>
                     <div id="accordion">
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                            <form class="mb-5" method="POST" action="">
+                            <form class="mb-5" method="POST" action="{{ route('admin.storeStuff') }}">
                                 @csrf
                                 <div class="row">
                                     <div class="form-group col">
                                         <label>Stuff Name</label>
-                                        <input type="number" class="form-control" name="stuff" placeholder="Stuff Name">
+                                        <input type="text" class="form-control" name="stuff_name" placeholder="Stuff Name">
                                     </div>
                                     <div class="form-group col">
                                         <label>Description</label>
-                                        <textarea type="date" name="stuff_date" class="form-control"></textarea>
+                                        <textarea name="description" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <input type="submit" class="float-right btn btn-primary" value="Submit stuff">
