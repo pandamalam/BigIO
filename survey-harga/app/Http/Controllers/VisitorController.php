@@ -21,7 +21,7 @@ class VisitorController extends Controller
         $start = Carbon::now()->subDays(6);
             $dates = [];
             $chartDatas = [];
-            for ($i = 0 ; $i <= 5; $i++) {
+            for ($i = 0 ; $i <= 6; $i++) {
                 $dates[] = $start->copy()->addDays($i);
                 
             }

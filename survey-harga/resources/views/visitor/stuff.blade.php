@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container">
-    <canvas id="myChart" ></canvas>
+    <div style="height: 300px">
+        <canvas id="myChart" ></canvas>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-12">
 
@@ -65,6 +67,8 @@
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 xAxes: [ {
                   display: true,

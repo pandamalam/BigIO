@@ -90,6 +90,20 @@
                 <div class="subtitle m-b-md">
                     BIG IO
                 </div>
+                <div class="content">
+                    <p> <b>Admin</b> <br>
+                        Email : person1@gmail.com <br>
+                        Pass : password 
+                    </p>
+                    <p> <b>Surveyot</b> <br>
+                        Email : person2@gmail.com <br>
+                        Pass : password 
+                    </p>
+                    <p> <b>Visitor</b> <br>
+                        Email : person3@gmail.com <br>
+                        Pass : password 
+                    </p>
+                </div>
             </div>
         </div>
     </body>
