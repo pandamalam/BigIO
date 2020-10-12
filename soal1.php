@@ -10,7 +10,7 @@ if(is_numeric($loop)){
     }
     $string = implode("",$word);
     $reverse = array_reverse($word);
-    echo $string.implode("",array_slice($reverse, 1));  
+    echo $string.implode("",array_slice($reverse, 1))."\n";  
 }else{
     echo "Hanya inputan angka\n";
 }
