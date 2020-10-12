@@ -20,5 +20,5 @@
 - Admin
 ![alt_text](https://i.ibb.co/S3cyhvq/admin.png)
 
-- Surveyor
+- Visitor
 ![alt_text](https://i.ibb.co/dKYtgt8/visitor.png)
